@@ -1,0 +1,14 @@
+{
+  "name": "teste-iniflex",
+  "version": "1.0.0",
+  "description": "Teste Iniflex - JAVA",
+  "main": "Principal.java",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
