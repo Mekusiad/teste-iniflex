@@ -27,7 +27,7 @@ public class Principal {
                 
                 
                 // 3.3 - Imprimir todos os funcionarios com suas informacões formatadas
-                    System.out.println("- Funcionarios: \n");
+                    System.out.println("3.1 e 3.3- Funcionarios: \n");
         
                     funcionarios.forEach(funcionario -> {
                         System.out.printf("Nome: %s | Data de nascimento: %s | Salario: %s | Funcao: %s%n",
@@ -45,7 +45,7 @@ public class Principal {
                     .collect(Collectors.groupingBy(Funcionario::getFuncao));
         
                 // 3.6 – Imprimir os funcionarios, agrupados por funcao.
-                     System.out.println("\n- Funcionarios agrupagos por funcao:");
+                     System.out.println("\n3.5 e 3.6- Funcionarios agrupagos por funcao:");
                      funcionariosPorFuncao.forEach((funcao,lista) -> {
                         System.out.printf("%n%s:%n%n", funcao);
                         lista.forEach(funcionario -> {
@@ -57,7 +57,7 @@ public class Principal {
                      });
         
                 //3.8 – Imprimir os funcionarios que fazem aniversario no mes 10 e 12.
-                System.out.println("\n- Funcionarios que fazem aniversario  no mes 10 e 12: \n");
+                System.out.println("\n3.8- Funcionarios que fazem aniversario  no mes 10 e 12: \n");
                 funcionarios.stream()
                 .filter(funcionario ->{
                     int mesAniversario = funcionario.getDataNascimento().getMonthValue();
@@ -77,10 +77,10 @@ public class Principal {
                 
                 long idade = ChronoUnit.YEARS.between(funcionarioMaisVelho.getDataNascimento(), LocalDate.now());
         
-                System.out.printf("%n %n- O funcionario %s tem a maior idade, no momento possui %s anos\n", funcionarioMaisVelho.getNome(),idade);
+                System.out.printf("%n %n3.9- O funcionario %s tem a maior idade, no momento possui %s anos\n", funcionarioMaisVelho.getNome(),idade);
             
                 //3.10 – Imprimir a lista de funcionarios por ordem alfabetica.
-                System.out.println("\n- Lista de funcionarios em ordem alfabetica: \n");
+                System.out.println("\n3.10- Lista de funcionarios em ordem alfabetica: \n");
         
                 funcionarios.stream()
                 .sorted(Comparator.comparing(Pessoa::getNome))
@@ -91,15 +91,15 @@ public class Principal {
                 .map(Funcionario::getSalario)
                 .reduce(BigDecimal.ZERO, BigDecimal::add);
         
-                System.out.println("\nA soma total dos salarios dos funcionarios e: " + totalSalarios.setScale(2,RoundingMode.HALF_UP).toString().replace(".", ","));
+                System.out.println("\n3.11- A soma total dos salarios dos funcionarios e: " + totalSalarios.setScale(2,RoundingMode.HALF_UP).toString().replace(".", ","));
         
                 
                  //3.12 – Imprimir quantos salarios minimos ganha cada funcionario, considerando que o salario minimo e R.00.
                  BigDecimal salarioMinimo = new BigDecimal("1212.00");
-                 System.out.println("\n- Quantidade de salarios minimo por funcionario: ");
+                 System.out.println("\n3.12- Quantidade de salarios minimo por funcionario: ");
                  funcionarios.forEach(funcionario->{
                     BigDecimal quatidadeSalarioMinimo = funcionario.getSalario().divide(salarioMinimo,2,RoundingMode.HALF_UP);
-                    System.out.println("Nome: " + funcionario.getNome() + ", recebe "+ quatidadeSalarioMinimo  +" Salarios minimos.");
+                    System.out.println( funcionario.getNome() + " recebe "+ quatidadeSalarioMinimo  +" Salarios minimos.");
          });
     }
 
