@@ -22,11 +22,11 @@ public class Principal {
         funcionarios.add(new Funcionario("Helena", LocalDate.of(1996, 9, 2), new BigDecimal(2799.93),"Gerente"));
             
                 
-                // 3.2  Remover o funcionario “Joao” da lista.
+        // 3.2  Remover o funcionario “Joao” da lista.
                     funcionarios.removeIf(funcionario -> funcionario.getNome().equals("Joao"));
                 
                 
-                // 3.3 - Imprimir todos os funcionarios com suas informacões formatadas
+        // 3.3 - Imprimir todos os funcionarios com suas informacões formatadas
                     System.out.println("3.1 e 3.3- Funcionarios: \n");
         
                     funcionarios.forEach(funcionario -> {
@@ -37,7 +37,7 @@ public class Principal {
                         funcionario.getFuncao());
                     });
         
-                // 3.4 - Os funcionarios receberam 10% de aumento de salario, atualizar a lista de funcionarios com novo valor.
+        // 3.4 - Os funcionarios receberam 10% de aumento de salario, atualizar a lista de funcionarios com novo valor.
                     funcionarios.forEach(funcionario-> funcionario.aumentarSalario(new BigDecimal(10)));
         
                 // 3.5 - Agrupar os funcionarios por funcao em um MAP, sendo a chave a “funcao” e o valor a “lista de funcionarios”.
@@ -84,7 +84,11 @@ public class Principal {
         
                 funcionarios.stream()
                 .sorted(Comparator.comparing(Pessoa::getNome))
-                .forEach(System.out::println);
+                .forEach(funcionario ->System.out.printf("Nome: %s | Data de nascimento: %s | Salario: %s | Funcao: %s%n",
+                funcionario.getNome(),
+                funcionario.getDataNascimentoFormatada(),
+                funcionario.getSalarioFormatado(),
+                funcionario.getFuncao()));
         
                 //3.11 – Imprimir o total dos salarios dos funcionarios.
                 BigDecimal totalSalarios = funcionarios.stream()
